@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PagesComponent } from './pages.component';
 import { NoPagesFoundComponent } from './no-pages-found/no-pages-found.component';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,9 @@ import { NoPagesFoundComponent } from './no-pages-found/no-pages-found.component
     NoPagesFoundComponent
   ],
   imports: [
-    CommonModule
+
+    SharedModule,
+    RouterModule
   ],
   exports: [
     DashboardComponent,

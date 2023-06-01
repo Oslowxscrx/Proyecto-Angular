@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { RouterModule, Routes} from '@angular/router';
+
+import { RouterModule, Routes } from '@angular/router';
 
 import { PagesComponent } from 'src/app/pages/pages.component';
 import { DashboardComponent } from 'src/app/pages/dashboard/dashboard.component';
@@ -13,20 +13,23 @@ import { NoPagesFoundComponent } from 'src/app/pages/no-pages-found/no-pages-fou
 
 const routes: Routes = [
   // rutas protegidas
-  {path: '', component:PagesComponent,
-  children:[
-    {path: 'dashboard', component:DashboardComponent},
-    {path: 'product', component:ProductsComponent},
-    {path: 'category', component:CategoriesComponent}
-  ]},
-//  {path: '', redirectTo:'/dashboard', pathMatch: 'full'},
-   {path: '**', component:NoPagesFoundComponent},
+  {
+    path: 'dashboard', component: PagesComponent,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'product', component: ProductsComponent },
+      { path: 'category', component: CategoriesComponent },
+      {path: '', redirectTo:'/dashboard', pathMatch: 'full'},
+      //    {path: '**', component:NoPagesFoundComponent},
+    ]
+  },
+
 ];
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
